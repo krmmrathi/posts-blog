@@ -1,0 +1,38 @@
+.container {
+  padding-top: 50px;
+}
+
+.darkContainer {
+  padding-top: 50px;
+  background-color: black;
+  color: white;
+}
+
+.title {
+  text-decoration: underline;
+}
+
+.child {
+  width: 1000px;
+}
+
+.comment {
+  width: 1000px;
+}
+
+.borderBox {
+  border: 2px solid grey;
+  padding: 20px;
+}
+
+.gapBox {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.commentBox {
+  margin-top: 25px;
+  border: 1px solid grey;
+  padding: 20px;
+  margin-bottom: 40px;
+}
