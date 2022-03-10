@@ -1,36 +1,31 @@
-import classes from './header.module.css';
-
 import Link from "next/link";
 import { useContext } from "react";
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-
+import { ToolButton } from '../styled/ToolButton.style';
+import { RightSection } from '../styled/RightSection.style';
 import { PostsContext } from "../../pages/_app";
+import {StaticAppBar} from "../styled/StaticAppBar.style"
 
 export default function Header() {
   const { darkMode, setDarkMode } = useContext(PostsContext);
 
   return (
-    <Box>
-      <AppBar position="static" className={darkMode ? classes.darkAppbar : classes.appbar}>
-        <Toolbar variant="dense">
-          <Typography variant="overline" component="div" className={classes.title}>
+      <StaticAppBar>
+        <Toolbar variant="regular">
+          <Typography variant="button" component="div">
             A Proof Of Concept Related To Posts
           </Typography>
-          <section className={classes.rightToolbar}>
-            <Button className={classes.button} onClick={ () => setDarkMode(!darkMode) }>Switch Theme</Button>
+          <RightSection>
+            {/* <ToolButton onClick={ () => setDarkMode(!darkMode) }>Switch Theme</ToolButton> */}
             <Link href="/" passHref>
-              <Button className={classes.button}>All Posts</Button>
+              <ToolButton>All Posts</ToolButton>
             </Link>
             <Link href="/new" passHref>
-              <Button className={classes.button}>Create New Post</Button>
+              <ToolButton>Create New Post</ToolButton>
             </Link>
-          </section>
+          </RightSection>
         </Toolbar>
-      </AppBar>
-    </Box>
+      </StaticAppBar>
   );
 }
