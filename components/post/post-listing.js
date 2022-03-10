@@ -1,26 +1,25 @@
-import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { useContext } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import  PostItem from "./post-item";
 import { PostsContext } from "../../pages/_app";
+import { Griditem } from "../styled/Griditem.style";
+import { Outergrid } from "../styled/Outergrid.style";
+import { Text } from "../styled/Text.style";
+import { Container } from "../styled/Container.style";
 
 export default function PostListing ({posts = [], users = [], infiniteScrollProps, postProps}){
     const { darkMode } = useContext(PostsContext);
 
     return (
-        <Grid
-          container
-          style={{padding: 30, backgroundColor: !darkMode ? "white" : "black"}}
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          >
-          <Grid item>
-            <Typography variant="h4" color={darkMode ? "white" : "black"}>
-            {"All Posts"}
-            </Typography>
-          </Grid>
+        <Outergrid>
+          <Container mtlarge={1}>
+            <Griditem>
+              <Text variant="h4">
+              {"All Posts"}
+              </Text>
+            </Griditem>
+          </Container>
           <InfiniteScroll
             dataLength={posts.length}
             next={infiniteScrollProps.fetchMoreData}
@@ -34,16 +33,18 @@ export default function PostListing ({posts = [], users = [], infiniteScrollProp
           >
           {posts?.map(function(post, index){
             return (
-            <Grid item key={ index }>
-              <PostItem
-                details={post}
-                user={users?.find(user => user?.id == post?.userId)}
-                props={postProps}
-              />
-            </Grid>
+            <Griditem key={ index }>
+              <Container border={1} mtlarge={1}>
+                <PostItem
+                  details={post}
+                  user={users?.find(user => user?.id == post?.userId)}
+                  props={postProps}
+                />
+              </Container>
+            </Griditem>
             );})
           }
             </InfiniteScroll>        
-        </Grid>
+        </Outergrid>
     )
 } 

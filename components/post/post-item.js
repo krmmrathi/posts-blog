@@ -1,32 +1,27 @@
-import classes from "./post-item.module.css";
-
-import { useRouter } from "next/router";
-import { useContext, useState } from "react";
-import { useMutation } from 'react-query';
+import { useContext } from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { PostsContext } from "../../pages/_app";
-import { deletePost } from "../../lib/delete-post";
+import { Text } from "../styled/Text.style";
 
 export default function PostItem({ details, user, props }) {
-  const { darkMode, posts, setPosts } = useContext(PostsContext);
+  const { darkMode } = useContext(PostsContext);
   const { handleEditNavigation, handleDetailsNavigation, handleDeletePost } = props;
 
   return (
-    <Card className={darkMode? classes.darkContainer : classes.container}>
+    <Card >
       <CardActionArea onClick={() => handleDetailsNavigation(details?.id)}>
         <CardContent>
-          <Typography gutterBottom variant="body2" component="div" className={classes.title}>
+          <Text gutterBottom variant="body2" component="div" underline={1}>
             {"Post #" +details?.id+ " created by "+ user?.name}
-          </Typography>
-          <Typography gutterBottom variant="h5" component="div" className={classes.title}>
+          </Text>
+          <Text gutterBottom variant="h5" component="div" underline={1}>
             {details?.title}
-          </Typography>
-          <Typography variant="body2">
+          </Text>
+          <Text variant="body2">
             {details?.body}
-          </Typography>
+          </Text>
         </CardContent>
       </CardActionArea>
       <CardActions>

@@ -1,12 +1,10 @@
-import classes from "./form.module.css";
-
 import { useEffect } from "react";
 import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
 import { Typography } from "@mui/material";
 
 import FormTextField from './text-field';
-
+import { Outergrid } from "../styled/Outergrid.style";
+import { Griditem } from "../styled/Griditem.style";
 
  const Form = ({onSubmit, isNew = true, formFields, data, form}) => {
      
@@ -17,25 +15,20 @@ import FormTextField from './text-field';
     }, [data]);
 
     return (
-        <Grid
-        container
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        className={classes.container}>
-            <Grid item>
+        <Outergrid rowGap={3} mtlarge={1}>
+            <Griditem>
                 <Typography variant="h4">{isNew ? "Add a new Post" : "Post #"+data?.id}</Typography>
-            </Grid>
-        {formFields.map(function(formField, index){
+            </Griditem>
+        {formFields.map(function(formField, _){
         return(
-            <Grid item key={ formField.name } className={classes.formfield}> 
+            <Griditem key={ formField.name } style={{ width:"50vw" }}> 
                 <FormTextField name={formField.name} control={control} label={formField.label} key={formField.name} />
-            </Grid>
+            </Griditem>
         );
         })}
         <Button onClick={handleSubmit(() => {onSubmit()})}>Submit</Button>
         <Button onClick={() => reset(data)}>Reset</Button>
-        </Grid>
+        </Outergrid>
     );
 };
 

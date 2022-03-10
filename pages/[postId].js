@@ -10,9 +10,9 @@ export default function Edit() {
   const form = useForm();
   const queryClient = useQueryClient();
   const router = useRouter();
+  const defaultFormValue = {title: "", body: ""};
   const [ postData, setPostData ] = useState(defaultFormValue);
   const formFields = [{label: "Title", name: "title"}, {label: "Body", name: "body"}];
-  const defaultFormValue = {title: "", body: ""};
 
   const postId = router.query.postId;
   const isNew = postId == "new";

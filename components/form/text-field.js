@@ -9,7 +9,8 @@ const FormTextField = ({ name, control, label }) => {
         control={control}
         defaultValue={""}
         render={({ field: { onChange, value }, fieldState: { error } }) => (
-          <TextField 
+          <TextField
+            style={{width: "100%"}} 
             onChange={onChange}
             value={value}
             label={label} 
