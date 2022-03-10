@@ -6,7 +6,6 @@ import { PostsContext } from "../../pages/_app";
 import { Text } from "../styled/Text.style";
 
 export default function PostItem({ details, user, props }) {
-  const { darkMode } = useContext(PostsContext);
   const { handleEditNavigation, handleDetailsNavigation, handleDeletePost } = props;
 
   return (

@@ -1,6 +1,3 @@
-import { useContext } from "react";
-
-import { PostsContext } from "../../pages/_app";
 import { Outergrid } from "../styled/Outergrid.style";
 import { Text } from "../styled/Text.style";
 import { Griditem } from "../styled/Griditem.style";
@@ -8,7 +5,6 @@ import { Container } from "../styled/Container.style";
 
 
 export default function Details({ details, user, comments }){
-  const { darkMode } = useContext(PostsContext);
 
   return(
       <Outergrid>
