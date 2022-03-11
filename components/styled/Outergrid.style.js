@@ -8,4 +8,5 @@ export const Outergrid = styled(Grid)`
   justify-content: center;
   align-self: center;
   display: flex;
+  background-color: ${props => props.dark ? "black" : "white" };
 `

@@ -2,6 +2,7 @@ import React from "react";
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react';
 import Details from './details';
+import { renderWithContext } from "../../utils/common-function";
 
 const props = {
     comments: [{
@@ -25,19 +26,19 @@ const props = {
 
 describe("Details Component", () => {
     test("should display Post Id", () => {
-        render(<Details {...props} />);
+        renderWithContext(<Details {...props} />);
         const postText = screen.getByText('Post #' + props.details.id);
         expect(postText).toBeInTheDocument();
     });
 
     test("should display User", () => {
-        render(<Details {...props} />);
+        renderWithContext(<Details {...props} />);
         const userText = screen.getByText('created by ' + props.user.name);
         expect(userText).toBeInTheDocument();
     });
 
     test("should display number of comments", () => {
-        render(<Details {...props} />);
+        renderWithContext(<Details {...props} />);
         const noOfCommentsText = screen.getByText(props.comments.length + ' comment(s)');
         expect(noOfCommentsText).toBeInTheDocument();
     });

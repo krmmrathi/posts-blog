@@ -1,7 +1,8 @@
 import React from "react";
 import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react';
+import {  screen } from '@testing-library/react';
 import PostListing from './post-listing';
+import { renderWithContext } from "../../utils/common-function";
 
 const props = {
     user: [{
@@ -43,13 +44,13 @@ const props = {
 
 describe("PostItem Component", () => {
     test("should display PostListing heading", () => {
-        render(<PostListing {...props}/>);
+        renderWithContext(<PostListing {...props}/>);
         const PostListingTitle = screen.getByText('All Posts');
         expect(PostListingTitle).toBeInTheDocument();
     });
 
     test("should render correct number of buttons", () => {
-        render(<PostListing {...props}/>);
+        renderWithContext(<PostListing {...props}/>);
 
         const buttons = screen.getAllByRole('button');
         const editButtons = screen.getAllByText('Edit');

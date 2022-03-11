@@ -8,12 +8,13 @@ import { Text } from "../styled/Text.style";
 import { Container } from "../styled/Container.style";
 
 export default function PostListing ({posts = [], users = [], infiniteScrollProps, postProps}){
+  const { darkMode } = useContext(PostsContext);
 
     return (
-        <Outergrid>
+        <Outergrid dark={darkMode ? 1 : 0}>
           <Container mtlarge={1}>
             <Griditem>
-              <Text variant="h4">
+              <Text variant="h4" dark={darkMode ? 1 : 0}>
               {"All Posts"}
               </Text>
             </Griditem>
