@@ -1,5 +1,3 @@
-import "../styles/global.css";
-
 import { createContext, useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 

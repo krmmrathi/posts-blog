@@ -1,4 +1,3 @@
-import Typography from '@mui/material/Typography';
 import { useContext } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import  PostItem from "./post-item";
@@ -9,7 +8,6 @@ import { Text } from "../styled/Text.style";
 import { Container } from "../styled/Container.style";
 
 export default function PostListing ({posts = [], users = [], infiniteScrollProps, postProps}){
-    const { darkMode } = useContext(PostsContext);
 
     return (
         <Outergrid>
